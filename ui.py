@@ -10,6 +10,11 @@ class MyApp(UIClass, QtBaseClass):
         UIClass.__init__(self)
         QtBaseClass.__init__(self)
         self.setupUi(self)
+        self.pushButton.clicked.connect(self.button_click)
+
+    def button_click(self):
+        test = self.lineEdit.text()
+        print(test)
 
 
 if __name__ == "__main__":
