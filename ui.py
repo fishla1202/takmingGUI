@@ -1,22 +1,20 @@
 # -*- coding: utf-8 -*-
 from PyQt5 import QtCore, uic, QtWidgets
 from getTakmingPage import auto_click_takming_page
+from login import Ui_Form
 import sys
 
-UIClass, QtBaseClass = uic.loadUiType("login.ui")
-
-
-class MyApp(UIClass, QtBaseClass):
+class MyApp(QtWidgets.QWidget):
     def __init__(self):
-        UIClass.__init__(self)
-        QtBaseClass.__init__(self)
-        self.setupUi(self)
-        self.pushButton.clicked.connect(self.button_click)
+        super().__init__()
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
+        self.ui.pushButton.clicked.connect(self.button_click)
 
     def button_click(self):
-        account = self.account.text()
-        passwd = self.passwd.text()
-        local = self.localOfDriver.text()
+        account = self.ui.account.text()
+        passwd = self.ui.passwd.text()
+        local = self.ui.localOfDriver.text()
         auto_click_takming_page(account, passwd, local)
 
 

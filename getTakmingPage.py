@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 
+
 def auto_click_takming_page(name, passwd, local):
 
     # 登入頁
