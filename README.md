@@ -14,6 +14,6 @@ ps 如果有一些老師你想額外填的話 請先填完之後再使用程式 
 
 <b>檔案載點</b>：https://drive.google.com/drive/folders/1gdG5s9vugHfZhIWcwG2omFFMCjWSrXJ5?usp=sharing <br>
 Mac版請下載：Mac.zip<br>
-Win版請下載：Win.rar<br>
+Win版請下載：Win.rar 執行檔名稱為ui.exe<br>
 
 <b>如果有其他問題歡迎 Email到我的信箱：peterleo1202@gmail.com</b>
