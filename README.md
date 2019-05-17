@@ -7,4 +7,6 @@
 填入 程式中的網頁模擬器檔案位置欄位 如果填錯程式不會運行<br>
 資料都填對之後 就會開始自動填問卷了 執行結果你看得見！<br>
 
-<b>檔案載點</b>：https://drive.google.com/drive/folders/1gdG5s9vugHfZhIWcwG2omFFMCjWSrXJ5?usp=sharing
+<b>檔案載點</b>：https://drive.google.com/drive/folders/1gdG5s9vugHfZhIWcwG2omFFMCjWSrXJ5?usp=sharing <br>
+Mac版請下載：Mac.zip
+Win版請下載：Win.rar
