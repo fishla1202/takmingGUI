@@ -1,69 +1,60 @@
-import requests as rq
-from bs4 import BeautifulSoup
+# -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver import ActionChains
-from time import sleep
 
-url = 'http://netinfo.takming.edu.tw/tip/up.php'
-driver_main = webdriver.Chrome('/usr/local/bin/chromedriver')
-driver_main.get(url)
+def auto_click_takming_page(name, passwd, local):
 
-driver_main.find_element_by_id('Passwd').send_keys('F129931231')
-driver_main.find_element('name', 'UserID').send_keys('D10516163')
-main_window = driver_main.current_window_handle
-driver_main.find_elements_by_name('image')[1].click()
-# url = 'http://netinfo.takming.edu.tw/tip/grade/grade_course_list.php'
-url = 'http://netinfo.takming.edu.tw/tip/login_xx.php'
-driver_main.get(url)
-driver_main.switch_to.alert.accept()
-driver_main.switch_to_window(main_window)
-url = 'http://netinfo.takming.edu.tw/tip/list_fun.php?flag=1&item=08&funitem=&Type=2'
-driver_main.get(url)
-# driver_main.find_element_by_link_text('http://netinfo.takming.edu.tw/tip/grade/explain.php').click()
-driver_main.get('http://netinfo.takming.edu.tw/tip/grade/explain.php')
-sleep(2)
+    # 登入頁
+    url = 'http://netinfo.takming.edu.tw/tip/up.php'
+    # 開啟網頁模擬器
+    try:
+        driver_main = webdriver.Chrome(local)
+        driver_main.get(url)
 
+        driver_main.find_element_by_id('Passwd').send_keys(passwd)
+        driver_main.find_element('name', 'UserID').send_keys(name)
+        main_window = driver_main.current_window_handle
+        driver_main.find_elements_by_name('image')[1].click()
+        url = 'http://netinfo.takming.edu.tw/tip/login_xx.php'
+        driver_main.get(url)
+        driver_main.switch_to.alert.accept()
+        driver_main.switch_to_window(main_window)
+        url = 'http://netinfo.takming.edu.tw/tip/list_fun.php?flag=1&item=08&funitem=&Type=2'
+        driver_main.get(url)
+        driver_main.get('http://netinfo.takming.edu.tw/tip/grade/explain.php')
+        driver_main.find_element_by_tag_name('a').click()
+        try:
+            hasClass = driver_main.find_element_by_tag_name('a')
+            while hasClass:
+                hasClass.click()
+                for i in range(2, 9):
+                    d = 2
+                    p_index = 1
+                    index = ''
+                    if i > 7:
+                        for k in range(8, 26):
+                            if k == 22:
+                                d = 2
+                                p_index = 5
+                            elif k == 19:
+                                d = 2
+                                p_index = 4
+                            elif k == 16:
+                                d = 2
+                                p_index = 3
+                            elif k == 12:
+                                d = 2
+                                p_index = 2
+                            index = '/html/body/form[1]/p[' + str(p_index) + ']/table/tbody/tr[' + str(d) + ']/td[3]/input'
+                            driver_main.find_element_by_xpath(index).click()
+                            d += 1
+                    else:
+                        index = '/html/body/form[1]/table/tbody/tr[' + str(i) + ']/td[5]/input'
+                        driver_main.find_element_by_xpath(index).click()
 
-# for value, index in linkIndex:
-#     if value['href'] == 'grade/explain.php':
-#         print(index)
-
-# print(images)
-# playload = {
-#     'UserID': 'D10516163',
-#     'Passwd': 'F129931231'
-# }
-# session = rq.Session()
-#
-# r = session.post(url, data=playload)
-# cookie = r.cookies.get_dict()
-#
-# cooke = ''
-# for key, value in cookie.items():
-#     cooke += key + '=' + value + ';'
-#
-# header = {
-#     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-#     'Accept-Encoding': 'gzip, deflate',
-#     'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-#     'Cache-Control': 'max-age=0',
-#     'Connection': 'keep-alive',
-#     'Cookie': cooke,
-#     'Host': 'netinfo.takming.edu.tw',
-#     'Referer': 'http://netinfo.takming.edu.tw/tip/grade/explain.php',
-#     'Upgrade-Insecure-Requests': '1',
-#     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
-# }
-#
-# # 填寫評量頁
-# url = 'http://netinfo.takming.edu.tw/tip/grade/grade_course_list.php'
-# r = rq.get(url, headers=header)
-# html_doc = r.text
-# soup = BeautifulSoup(html_doc)
-# askPage = soup.select('td a')
-# baseUrl = 'http://netinfo.takming.edu.tw/tip/grade/'
-# link = []
-# for alink in askPage:
-#     link.append(baseUrl+alink['href'])
-# # print(r.cookies.get_dict())
-# print(link)
+                driver_main.find_element_by_xpath("//input[@type='SUBMIT' and @value='送出此表']").click()
+                driver_main.find_element_by_tag_name('a').click()
+                hasClass = driver_main.find_element_by_tag_name('a')
+        except:
+            print('doen')
+    except:
+        print('error driver local')

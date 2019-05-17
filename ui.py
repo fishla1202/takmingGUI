@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from PyQt5 import QtCore, uic, QtWidgets
-
+from getTakmingPage import auto_click_takming_page
 import sys
 
 UIClass, QtBaseClass = uic.loadUiType("login.ui")
@@ -13,8 +14,10 @@ class MyApp(UIClass, QtBaseClass):
         self.pushButton.clicked.connect(self.button_click)
 
     def button_click(self):
-        test = self.lineEdit.text()
-        print(test)
+        account = self.account.text()
+        passwd = self.passwd.text()
+        local = self.localOfDriver.text()
+        auto_click_takming_page(account, passwd, local)
 
 
 if __name__ == "__main__":
