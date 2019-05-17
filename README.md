@@ -3,7 +3,7 @@
 目前設定問卷第一部分 都填正中間 <br>
 其餘部分都填最左<br>
 使用程式前 請先到 http://chromedriver.chromium.org/<br>
-下載 chromedriver 安裝後 找出chromedriver執行檔在電腦中的位置 <br>
+下載 chromedriver 解壓縮後 找出chromedriver執行檔在電腦中的位置 <br>
 如果chromedriver一直閃退 可能是你的Chrome版本沒支援到 更新Chrome就能解決 <br>
 填入 程式中的網頁模擬器檔案位置欄位 如果填錯程式不會運行<br>
 帳號:學號<br>
