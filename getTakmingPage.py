@@ -56,6 +56,6 @@ def auto_click_takming_page(name, passwd, local):
                 driver_main.find_element_by_tag_name('a').click()
                 hasClass = driver_main.find_element_by_tag_name('a')
         except:
-            print('doen')
+            print('done')
     except:
         print('error driver local')
