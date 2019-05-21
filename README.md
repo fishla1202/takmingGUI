@@ -1,5 +1,5 @@
 # takmingGUI
-自動填寫導師評量<br>
+自動填寫教學評量<br>
 目前設定問卷第一部分 都填正中間 <br>
 其餘部分都填最左<br>
 使用程式前 請先到 http://chromedriver.chromium.org/<br>
